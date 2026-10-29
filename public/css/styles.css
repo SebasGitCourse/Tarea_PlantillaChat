@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Economica:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+    --fondo: #fff;
+    --panel: #fff;
+    --borde: #0a8e9e;
+    --texto: #000;
+    --secundario: #00000080;
+    --acento: #0a8e9e;
+    --fondoMensaje:#0a8e9e10;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: "Economica", sans-serif;
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: 0 15px;
+    margin-bottom: 15px;
+}
+
+section {
+    border-radius: 5px;
+}
+
+/* Encabezado */
+.encabezado {
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    padding: 15px 0;
+}
+
+.etiqueta {
+    color: var(--acento);
+    font-size: 25px;
+    font-weight: 700;
+}
+
+/* Formulario */
+.panel {
+    width: 100%;
+    max-width: 1200px;
+    background: var(--panel);
+    border: 1px solid var(--borde);
+    padding: 30px;
+    margin-bottom: 35px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.campo label {
+    display: flex;
+    align-items: center;
+    min-width: 120px;
+    text-align: left;
+    color: var(--acento);
+    font-size: 15px;
+    margin-right: 20px;
+}
+
+.campo input,
+.campo textarea {
+    width: 100%;
+    color: var(--texto);
+    border: 1px solid var(--borde);
+    border-radius: 3px;
+    padding: 15px;
+    font: inherit;
+    font-size: 14px;
+    outline: none;
+    background-color: transparent;
+}
+
+.campo textarea {
+    min-height: 100px;
+    max-height: 100px;
+    resize: none;
+}
+
+.campo input::placeholder,
+.campo textarea::placeholder {
+    color: var(--secundario);
+}
+
+.campo input:focus,
+.campo textarea:focus {
+    border-color: var(--acento);
+}
+
+.acciones {
+    display: flex;
+    justify-content: flex-end;
+}
+
+button {
+    background: var(--acento);
+    color: var(--fondo);
+    padding: 15px 25px;
+    border: none;
+    border-radius: 3px;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        box-shadow: 0px 0px 5px 2px var(--acento);
+        transition: box-shadow 0.2s ease;
+    }
+}
+
+/* Conversación */
+.historial {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.historial-titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 0 30px;
+}
+
+.historial-titulo h2 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--acento);
+    text-align: center;
+    width: 100%;
+}
+
+.lista-mensajes {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: var(--panel);
+    border: 1px solid var(--borde);
+    padding: 20px;
+    min-height: 250px;
+}
+
+.mensaje {
+    background-color: var(--fondoMensaje);
+    border-left: 2px solid var(--acento);
+    padding: 20px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    &:hover {
+        transform: scale(1.01);
+        transition: transform 0.2s ease;
+    }
+
+    &:hover>.mensaje-datos>time {
+        transition: all 0.2s ease;
+        color: var(--acento);
+    }
+}
+
+.mensaje-datos {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.mensaje-datos strong {
+    color: var(--acento);
+    font-size: 14px;
+}
+
+.mensaje-datos time {
+    color: var(--secundario);
+    font-size: 14px;
+}
+
+.mensaje p {
+    line-height: 1.5;
+    margin-bottom: 0;
+    overflow-wrap: anywhere;
+    font-size: 14px;
+}
+
+.sin-mensajes {
+    min-height: 210px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.simbolo {
+    color: var(--acento);
+    font-size: 35px;
+    letter-spacing: 5px;
+}
+
+.sin-mensajes h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+.sin-mensajes p {
+    color: var(--secundario);
+    font-size: 14px;
+}
+
+/* Pantallas pequeñas */
+@media (max-width: 600px) {
+    .contenedor {
+        width: 100%;
+    }
+
+    .panel {
+        padding: 20px;
+    }
+
+    .historial-titulo {
+        flex-wrap: wrap;
+    }
+
+    .acciones button {
+        width: 100%;
+    }
+}

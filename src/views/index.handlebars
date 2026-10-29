@@ -1,0 +1,50 @@
+<main class="contenedor">
+
+    <header class="encabezado">
+        <span class="etiqueta">ESPACIO DE CONVERSACIÓN</span>
+    </header>
+
+    <section class="panel">
+
+        <form class="formulario">
+            <div class="campo">
+                <label for="username">NOMBRE DE USUARIO</label>
+                <input type="text" id="username" name="username" placeholder="¿Cómo te llamas?" value="{{usuario}}">
+            </div>
+
+            <div class="campo">
+                <label for="mensaje">TU MENSAJE</label>
+                <textarea id="mensaje" name="mensaje" placeholder="Escribe algo para compartir..."></textarea>
+            </div>
+
+            <div class="acciones">
+                <button type="button">Enviar mensaje</button>
+            </div>
+        </form>
+    </section>
+
+    <section class="historial">
+        <div class="historial-titulo">
+            <h2>CONVERSACIÓN</h2>
+        </div>
+
+        <div class="lista-mensajes">
+            {{#each mensajes}}
+            <article class="mensaje">
+                <div class="mensaje-datos">
+                    <strong>{{...usuario}}</strong>
+                    <time>{{this.hora}}</time>
+                </div>
+                <p>{{this.contenido}}</p>
+            </article>
+            {{else}}
+            <div class="sin-mensajes">
+                <span class="simbolo">...</span>
+                <h3>Todavía no hay mensajes</h3>
+                <p>Los mensajes aparecerán aquí.</p>
+            </div>
+            {{/each}}
+        </div>
+    </section>
+
+</main>
